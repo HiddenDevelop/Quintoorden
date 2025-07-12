@@ -1,0 +1,392 @@
+<!-- landing_aligned.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quintoorden</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #111111;
+        --text: #fafafa;
+        --accent: #ffcf00;
+        --accent-dark: #d4a600;
+        --accent-light: #ffe568;
+        --panel: #1c1c1c;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Poppins", Helvetica, Arial, sans-serif;
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        scroll-behavior: smooth;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .wrapper {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      .headline {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        background: linear-gradient(
+          90deg,
+          var(--accent-light),
+          var(--accent-dark)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 3rem;
+      }
+
+      /* grid now alternates image + card */
+      .grid {
+        display: grid;
+        margin: auto;
+        grid-template-columns: 1fr 2fr;
+        gap: 2.5rem 3rem;
+        width: 100%;
+      }
+
+      .media {
+        display: flex;
+        justify-content: right;
+      }
+      .media img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 2px solid transparent;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+        transition: transform 0.4s, box-shadow 0.4s, border-color 0.4s;
+      }
+      .media img:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.55);
+        border-color: var(--accent-dark);
+      }
+
+      .feature-card {
+        background: var(--panel);
+        padding: 1.5rem 1.75rem;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card ul {
+        padding: 0.5rem 1.25rem;
+        line-height: 2;
+        font-size: 1.1rem;
+      }
+
+      .feature-card ul li::marker {
+        font-size: 1.5em; /* Increase bullet size */
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 10px;
+        padding: 2px;
+        background: linear-gradient(
+          135deg,
+          var(--accent-light),
+          var(--accent-dark)
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+      .feature-card h3 {
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+      }
+      .feature-card p {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+
+      .cta-section {
+        text-align: center;
+      }
+      .cta-btn {
+        display: inline-block;
+        padding: 1rem 2.75rem;
+        border-radius: 60px;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--bg);
+        background: var(--accent);
+        box-shadow: 0 8px 20px rgba(255, 207, 0, 0.3);
+        transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      }
+      .cta-btn:hover {
+        background: var(--accent-light);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(255, 207, 0, 0.45);
+      }
+
+
+
+      .container2{
+        padding-block: 7rem;
+        background: #242323;
+      }
+
+      .section-heading {
+        text-align: center;
+        font-size: clamp(1.5rem, 4vw + 0.5rem, 2.5rem);
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+      .value {
+        padding-block: 4rem 5rem;
+      }
+
+      .value p {
+        max-width: 65ch;
+        margin-inline: auto;
+        font-size: 1.5rem;
+        line-height: 1.7;
+        margin-bottom: 2.75rem;
+      }
+
+      /* --------------   SOCIAL PROOF  -------------- */
+.social-proof {
+  padding-block: 4rem 5.5rem;
+  text-align: center;
+  
+}
+
+.social-proof p {
+
+  font-size: 1.35rem;
+  font-style: italic;
+}
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .feature-card {
+          margin-top: 1rem;
+        }
+      }
+      @media (max-width: 600px) {
+        .wrapper {
+          padding: 2.5rem 1rem 3rem;
+        }
+        .headline {
+          margin-bottom: 2.5rem;
+        }
+        .grid {
+          gap: 2rem;
+        }
+        .feature-card {
+          padding: 1.25rem 1.5rem;
+        }
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <nav style="display: flex; justify-content: center; padding-top: 50px">
+      <img src="../Images/LAIMAGEN.png" alt="" style="width: 150px" />
+    </nav>
+    <div class="wrapper">
+      <h1 class="headline" style="font-weight: 500">
+        Qué esperar de los 5 templates que pueden
+        <i>mejorar tu carrera y confianza como artista.</i>
+      </h1>
+
+      <div class="grid">
+        <!-- Pair 1 -->
+        <div class="media">
+          <img src="../Images/Plantilla1.png" alt="Mentor guiding writer" />
+        </div>
+        <div class="feature-card">
+          <h3>Plantilla de portafolio artisitco</h3>
+          <ul>
+            <li>
+              Organiza tu trabajo de manera que se vea profesional y atractivo.
+            </li>
+            <li>
+              Incluye ejemplos de cartas de presentación y estructura clara del
+              contenido.
+            </li>
+            <li>
+              Aprende a adaptar tu portafolio según la oportunidad (galería,
+              beca, exposición).
+            </li>
+            <li>
+              Presenta tus ideas de forma organizada para obtener mejores
+              resultado.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pair 2 -->
+        <div class="media">
+          <img src="../Images/Plantilla2.png" alt="Typing first draft" />
+        </div>
+        <div class="feature-card">
+          <h3>Declaración de artista</h3>
+          <ul>
+            <li>
+              Guía paso a paso para escribir sobre tu trabajo de manera
+              convincente.
+            </li>
+            <li>
+              Organiza tu historial y logros para conectar con tu audiencia.
+            </li>
+            <li>
+              Aprende exactamente qué tipo de lenguaje usar para que lleves tu
+              mensaje.
+            </li>
+            <li>
+              Gana confianza para presentarte como el artista serio que eres.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pair 3 -->
+        <div class="media">
+          <img src="../Images/Plantilla3.png" alt="Virtual writing session" />
+        </div>
+        <div class="feature-card">
+          <h3>Propuesta de exposición</h3>
+          <ul>
+            <li>
+              La estructura exacta que necesitas para presentar tus obras a
+              galerías.
+            </li>
+            <li>
+              Si has soñado con exponer pero no sabes cómo empezar, aquí está tu
+              respuesta.
+            </li>
+            <li>Una propuesta bien hecha puede abrirte puertas o cerrarlas.</li>
+            <li>
+              Elimina el miedo al rechazo porque sabrás exactamente qué decir.
+            </li>
+            <li>
+              Conoce lo que buscan los curadores para que sepas que poner en tu
+              aplicación.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pair 4 -->
+        <div class="media">
+          <img src="../Images/Plantilla4.png" alt="Notebook brainstorming" />
+        </div>
+        <div class="feature-card">
+          <h3>Tabla de metas</h3>
+          <ul>
+            <li>
+              Define objetivos específicos con plazos claros y seguimiento de
+              progreso.
+            </li>
+            <li>
+              Convierte tus sueños en un plan de acción realista para que
+              obtengas la claridad para moverte con seguridad.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-section" style="margin-top: 3.5rem">
+        <a class="cta-btn" href="#apply">EMPIEZA AHORA</a>
+      </div>
+
+    </div>
+     <!-- **************   SOCIAL PROOF  ************** -->
+    <section class="social-proof">
+      <div class="container2">
+        <p>
+          Si estás leyendo esto, es porque ya estás tomando tu carrera artística en serio. Tienes talento, y una obra que merece ser vista.
+        </p>
+      </div>
+    </section>
+
+    <div class="wrapper">
+<!-- **************   VALUE / EXPLANATORY SECTION  ************** -->
+      <section class="value container">
+        <h2 class="section-heading">
+          Si estás leyendo esto, es porque ya estás tomando tu carrera artística
+          en serio. Tienes talento, y una obra que merece ser vista.
+        </h2>
+        <p>
+          La mayoría de las veces ya tenemos inspiración, sabemos qué proyectos
+          queremos crear, cómo y cuándo.
+        </p>
+
+        <p>Pero lo que hace falta es estructura…</p>
+
+        <p>
+          Saber cómo presentarte con claridad, qué decir en una propuesta, cómo
+          adaptar tu portafolio según las oportunidades.
+        </p>
+
+        <p>
+          Y estas son habilidades que no todos aprendimos, pero al final del día
+          esto es lo que lleva tu arte, desde una obra cualquiera, a una obra
+          que tenga valor monetario.
+        </p>
+
+        <p>Así te puedes enfocar en lo que amas de verdad: crear.</p>
+
+        <p>Y una vez que tienes estructura, todo se siente más posible.</p>
+
+        <p>
+          En Quinto Orden, hemos visto a muchos artistas avanzar con más
+          seguridad. No porque cambien sus obras o lo que crean, sino porque
+          aprenden a comunicarlo de una forma profesional sin dejar de ser ellos
+          mismos.
+        </p>
+
+        <p>Por eso reunimos estas herramientas en un solo paquete:</p>
+
+        <p>
+          Las plantillas que han ayudado a otros artistas a dar el siguiente
+          paso con más confianza.
+        </p>
+
+        <p>
+          👉 Si tú también quieres presentarte con claridad y dejar de
+          improvisar, haz tuyo el paquete hoy y empieza a avanzar con más
+          confianza.
+        </p>
+
+         <div class="cta-section">
+        <a class="cta-btn" href="#apply">EMPIEZA AHORA</a>
+      </div>
+      </section>
+    </div>
+  </body>
+</html>
